@@ -5,6 +5,8 @@ on:
     - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 name: Upload Release Asset
+permissions:
+  content: write
 
 jobs:
   build:
@@ -21,8 +23,6 @@ jobs:
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          permissions:
-            content: write
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
