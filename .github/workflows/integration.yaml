@@ -5,6 +5,8 @@ on:
         - 'v*' # Push events matching v*
 
 name: Upload Release Asset
+permissions:
+    contents: write
 
 jobs:
     build:
@@ -16,7 +18,7 @@ jobs:
             - name: Build project # This would actually build yoiur project... Using zip for an example artifact
               run: |
                 zip --junk-paths my-artifact README.md
-            - name: Crease Release
+            - name: Create Release
               id: create_release
               uses: actions/create-release@v1
               env:
