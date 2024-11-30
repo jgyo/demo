@@ -5,13 +5,15 @@ on:
         - 'v*' # Push events matching v*
 
 name: Upload Release Asset
-permissions:
-    contents: write
 
 jobs:
     build:
         name: Upload Release Asset
         runs-on: ubuntu-latest
+        permissions:
+            contents: write
+            repository-projects: write
+
         steps:
             - name: Checkout Code
               uses: actions/checkout@v4
