@@ -11,9 +11,9 @@ env:
   APPLICATION_NAME: WpfDemo
   PROJECT_DIR: WpfDemo
   PROJECT_NAME: WpfDemo
-  PROJECT_PATH: ${{ env.PROJECT_DIR }}/${{ env.PROJECT_NAME }}.csproj
-  ISS_PATH: ${{ env.PROJECT_DIR }}/${{ env.PROJECT_NAME }}.iss
-  OUTPUT_DIR: ${{ env.PROJECT_DIR }}/output
+  PROJECT_PATH: ${{ PROJECT_DIR }}/${{ PROJECT_NAME }}.csproj
+  ISS_PATH: ${{ PROJECT_DIR }}/${{ PROJECT_NAME }}.iss
+  OUTPUT_DIR: ${{ PROJECT_DIR }}/output
 
 jobs:
   build:
@@ -44,7 +44,7 @@ jobs:
           options: /O+
 
       - name: Rename Setup file
-        run: ren ${{ OUTPUT_DIR }}/setup.exe ${{ env.APPLICATION_NAME }}.${{ github.ref_name }}.exe
+        run: ren ${{ env.OUTPUT_DIR }}/setup.exe ${{ env.APPLICATION_NAME }}.${{ github.ref_name }}.exe
 
       - name: Create Release
         id: create_release
@@ -53,9 +53,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref_name }}
-          name: ${{ APPLICATION_NAME }} Release ${{ github.ref_name }}
+          name: ${{ env.APPLICATION_NAME }} Release ${{ github.ref_name }}
           draft: false
           prerelease: false
-          body_path: ${{ PROJECT_DIR }}/changes.txt
+          body_path: ${{ env.PROJECT_DIR }}/changes.txt
           files: ${{ env.OUTPUT_DIR }}/${{ env.APPLICATION_NAME }}.${{ github.ref_name }}.exe
           fail_on_unmatched_files: true
