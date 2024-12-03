@@ -11,7 +11,7 @@ env:
   APPLICATION_NAME: WpfDemo
   PROJECT_DIR: WpfDemo
   PROJECT_NAME: WpfDemo
-  PROJECT_PATH: ${{ env:PROJECT_DIR/${{ env:PROJECT_NAME }}.csproj
+  PROJECT_PATH: ${{ env:PROJECT_DIR }}/${{ env:PROJECT_NAME }}.csproj
   ISS_PATH: ${{ env:PROJECT_DIR }}/${{ env:PROJECT_NAME }}.iss
   OUTPUT_DIR: ${{ env:PROJECT_DIR }}/output
 
