@@ -16,8 +16,6 @@ jobs:
     name: Deploy WPF Demo
     runs-on: windows-latest
     steps:
-      - run: echo ${{ github.ref_name }}
-
       - name: Checkout code
         uses: actions/checkout@v4
 
