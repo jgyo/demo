@@ -1,0 +1,3 @@
+2024/12/03  Added changes.txt for automating release body text.
+
+            Updated integration.yaml to modify release upload.
