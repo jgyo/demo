@@ -10,6 +10,7 @@ permissions:
 
 env:
   PROJECT_PATH: WpfDemo/WpfDemo.csproj
+  ISS_PATH: WpfDemo/WpfDemo.iss
 
 jobs:
   build:
@@ -31,6 +32,12 @@ jobs:
 
       - name: Publish Project
         run: dotnet publish ${{ env.PROJECT_PATH }} -c Release --no-build
+
+      - name Compile .exe Installer
+        uses: Minionguyjpro/Inno-Setup-Action@v1.2.2
+        with:
+          path: ${{ ISS_PATH }}
+          options: /O+
 
       - run: cd
       - run: dir *.*
