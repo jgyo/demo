@@ -30,7 +30,7 @@ jobs:
         run: dotnet build ${{ env.PROJECT_PATH }} -c Release --no-restore
 
       - name: Publish Project
-        run: dotnet publish ${{ env.PROJECT_PATH }} -c Release --no-build -r win-64x -p:PublishSingleFile=false
-        
+        run: dotnet publish ${{ env.PROJECT_PATH }} -c Release --no-build
+
       - run: cd
       - run: dir *.*
