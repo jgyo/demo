@@ -1,10 +1,9 @@
-name: Deploy WPF Demo
-
 on:
   push:
     tags:
     - 'v*'
 
+name: Deploy WPF Demo
 permissions:
   contents: write
 
@@ -14,6 +13,7 @@ env:
 
 jobs:
   build:
+    name: Deploy WPF Demo
     runs-on: windows-latest
     steps:
       - name: Checkout code
