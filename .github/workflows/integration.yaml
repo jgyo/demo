@@ -15,9 +15,9 @@ env:
 jobs:
   build:
     env:
-      PROJECT_PATH: ${{ PROJECT_DIR }}/${{ PROJECT_NAME }}.csproj
-      ISS_PATH: ${{ PROJECT_DIR }}/${{ PROJECT_NAME }}.iss
-      OUTPUT_DIR: ${{ PROJECT_DIR }}/output
+      PROJECT_PATH: ${{ env.PROJECT_DIR }}/${{ env.PROJECT_NAME }}.csproj
+      ISS_PATH: ${{ env.PROJECT_DIR }}/${{ env.PROJECT_NAME }}.iss
+      OUTPUT_DIR: ${{ env.PROJECT_DIR }}/output
 
     name: Deploy WPF Demo
     runs-on: windows-latest
