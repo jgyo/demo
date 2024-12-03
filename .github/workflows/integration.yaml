@@ -55,6 +55,3 @@ jobs:
           body_path: WpfDemo/changes.txt
           files: WpfDemo/output/WpfDemo.${{ github.ref_name }}.exe
           fail_on_unmatched_files: true
-
-Warning: Unexpected input(s) 'release_name', valid inputs are ['body', 'body_path', 'name', 'tag_name', 'draft', 'prerelease', 'files', 
-'fail_on_unmatched_files', 'repository', 'token', 'target_commitish', 'discussion_category_name', 'generate_release_notes', 'append_body', 'make_latest']
