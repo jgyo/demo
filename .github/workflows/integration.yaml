@@ -7,7 +7,7 @@ name: Deploy WPF Demo
 permissions:
   contents: write
 
-env.
+env:
   APPLICATION_NAME: WpfDemo
   PROJECT_DIR: WpfDemo
   PROJECT_NAME: WpfDemo
