@@ -1,3 +1,5 @@
-2024/12/03  Added changes.txt for automating release body text.
+####2024/12/03
 
-            Updated integration.yaml to modify release upload.
+- Changed the format of the changes.txt file.
+- Generalized integration.yaml file.
+- Created powershell script to tag commit.
