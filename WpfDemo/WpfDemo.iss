@@ -33,7 +33,6 @@ LicenseFile=..\LICENSE.txt
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputBaseFilename=WpfDemo_Setup
-SetupIconFile=C:\Users\gilyo\OneDrive\Documents 1\Axialis Librarian\Icons\Samples\Flat Icons\Clipboard_cut.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
