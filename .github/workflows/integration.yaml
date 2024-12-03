@@ -36,7 +36,7 @@ jobs:
       - name: Compile Installer      
         uses: Minionguyjpro/Inno-Setup-Action@v1.2.2
         with:
-          path: ${{ ISS_PATH }}
+          path: ${{ env.ISS_PATH }}
           options: /O+
 
       - run: cd
