@@ -39,9 +39,12 @@ jobs:
           path: ${{ env.ISS_PATH }}
           options: /O+
 
+      - name: Rename Setup file
+        run: ren WpfDemo/output/setup.exe WpfDemo.${{ github.ref_name }}.exe
+
       - name: Create Release
         id: create_release
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -49,16 +52,5 @@ jobs:
           release_name: Release ${{ github.ref_name }}
           draft: false
           prerelease: false
-
-      - name: Upload Release Asset
-        id: upload-release-asset 
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: WpfDemo/output/WpfDemo_Setup.exe
-
-          asset_name: WpfDemo.${{ github.ref_name }}.exe
-          asset_content_type: application/exe
+          files: WpfDemo/output/WpfDemo.${{ github.ref_name }}.exe
 
