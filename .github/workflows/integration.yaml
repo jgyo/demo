@@ -33,7 +33,7 @@ jobs:
       - name: Publish Project
         run: dotnet publish ${{ env.PROJECT_PATH }} -c Release --no-build
 
-      - name Compile .exe Installer
+      - name: Compile Installer      
         uses: Minionguyjpro/Inno-Setup-Action@v1.2.2
         with:
           path: ${{ ISS_PATH }}
