@@ -16,9 +16,7 @@ jobs:
     name: Deploy WPF Demo
     runs-on: windows-latest
     steps:
-      - run: |
-        echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
-        echo "Tag name from github.ref_name: ${{ github.ref_name }}"
+      - run: echo "Tag name from github.ref_name: ${{ github.ref_name }}"
 
       - name: Checkout code
         uses: actions/checkout@v4
@@ -50,7 +48,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          release_name: Release ${{ github.ref_name }}
           draft: false
           prerelease: false
 
