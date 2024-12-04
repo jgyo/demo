@@ -1,5 +1,2 @@
-####2024/12/03
+#### 2024/12/03
 
-- Changed the format of the changes.txt file.
-- Generalized integration.yaml file.
-- Created powershell script to tag commit.
