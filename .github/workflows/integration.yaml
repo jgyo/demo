@@ -46,6 +46,9 @@ jobs:
 
       - name: Rename Setup file
         run: ren ${{ env.OUTPUT_DIR }}/setup.exe ${{ env.APPLICATION_NAME }}.${{ github.ref_name }}.exe
+        
+      - name: Secret Test
+        run: echo "$env:SECRET"> ./${{ env.OUTPUT_DIR }}/secret.txt
 
       - name: Create Release
         id: create_release
@@ -58,9 +61,10 @@ jobs:
           draft: false
           prerelease: false
           body_path: ${{ env.PROJECT_DIR }}/changes.txt
-          files: ${{ env.OUTPUT_DIR }}/${{ env.APPLICATION_NAME }}.${{ github.ref_name }}.exe
+          files: |
+            ${{ env.OUTPUT_DIR }}/${{ env.APPLICATION_NAME }}.${{ github.ref_name }}.exe
+            ${{ env.OUTPUT_DIR }}/secret.txt
+            
           fail_on_unmatched_files: true
           
-      - name: Secret Test
-        run: echo "$env:SECRET"> ./${{ env.OUTPUT_DIR }}/secret.txt
         
