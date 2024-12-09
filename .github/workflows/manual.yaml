@@ -44,9 +44,17 @@ jobs:
 
       - name: Rename Setup file
         run: ren ${{ env.OUTPUT_DIR }}/setup.exe ${{ env.APPLICATION_NAME }}.${{ github.ref_name }}.exe
-        
-      - name: Secret Test
-        run: echo "$env:SECRET"> ./${{ env.OUTPUT_DIR }}/secret.txt
+
+      - name: Sign the installer
+        uses: skymatic/code-sign-action@v1
+        with:
+          certificate: '${{ secrets.CERT }}'
+          password: '${{ secrets.PASSWORD }}'
+          certificatename: '${{ secrets.CERT_NAME }}'
+          description: 'Installer'
+          timestampUrl: 'http://timestamp.digicert.com'
+          folder: '${{ env.OUTPUT_DIR }}'
+          recursive: false
 
       - uses: actions/upload-artifact@v4
         with:
